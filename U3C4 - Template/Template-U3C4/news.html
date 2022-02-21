@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+        
+      }
+  
+      #main {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 7px;
+        flex: 8;
+  
+        width: 600px;
+      }
+      #sidebar {
+        flex: 2;
+  
+      }
+      img {
+        width: 500px;
+        margin-left: 50px;
+      }
+      div {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+
+import sidebar from "/Template-U3C4/components/sidebar.js"
+  let sidebar_div = document.getElementById("sidebar")
+  sidebar_div.innerHTML = sidebar();
+
+  // var arr = JSON.parse(localStorage.getItem("article")) || [];
+
+  import { apiCall, appendArticles} from "/Template-U3C4/scripts/main.js"
+  
+  let search_term = JSON.parse(localStorage.getItem("article"));
+  console.log("search_term:",search_term)
+
+  let parent = document.getElementById("main")
+
+  appendArticles(search_term,parent)
+
+
+  let input = document.getElementById("searchbar")
+
+input.addEventListener("keypress",(e)=>{
+
+  if(e.key==="Enter"){
+    let input_value = document.getElementById("searchbar").value
+
+    localStorage.setItem("search_term",input_value);
+    window.location.href = "search.html"
+  }
+})
+  
+
+  </script>
