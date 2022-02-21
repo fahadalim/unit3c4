@@ -52,12 +52,12 @@
 
 <script type="module">
 
-  import sidebar from "/Template-U3C4/components/sidebar.js"
+  import sidebar from "./components/sidebar.js"
   let sidebar_div = document.getElementById("sidebar")
   sidebar_div.innerHTML = sidebar();
 
 
-  import { apiCall, appendArticles} from "/Template-U3C4/scripts/main.js"
+  import { apiCall, appendArticles} from "./scripts/main.js"
 
   let res = await apiCall("https://shrouded-earth-23381.herokuapp.com/api/headlines/india")
 

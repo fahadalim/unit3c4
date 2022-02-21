@@ -52,13 +52,13 @@
 
 <script type="module">
 
-import sidebar from "/Template-U3C4/components/sidebar.js"
+import sidebar from "./components/sidebar.js"
   let sidebar_div = document.getElementById("sidebar")
   sidebar_div.innerHTML = sidebar();
 
   // var arr = JSON.parse(localStorage.getItem("article")) || [];
 
-  import { apiCall, appendArticles} from "/Template-U3C4/scripts/main.js"
+  import { apiCall, appendArticles} from "./scripts/main.js"
   
   let search_term = JSON.parse(localStorage.getItem("article"));
   console.log("search_term:",search_term)
